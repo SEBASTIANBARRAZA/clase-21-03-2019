@@ -1,0 +1,28 @@
+ var tiempo;
+
+function preload(){
+	var key = "55b5e4c15eaf5227ba67c6d09921da68";
+	var city = "Santiago,cl"
+	tiempo = loadJSON("https://api.openweathermap.org/data/2.5/weather?q="+ city +"&units=metric&APPID="+ key)
+	}
+
+	
+	
+ function setup() { 
+  createCanvas(400, 400);
+	print(tiempo)
+	noLoop();
+ }
+
+
+function draw() {
+	var calor = Math.round(tiempo.main.temp);
+	if (calor > 15){
+		fill(255,0,0);
+	}else{
+		fill(0,0,255);
+	}
+	textSize(36)
+	text(tiempo.main.temp,10,40);
+	
+}
